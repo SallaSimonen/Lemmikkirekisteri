@@ -107,6 +107,34 @@ public class LemmikkirekisteriDB
         Console.Clear();
     }
 
+    public void PaivitaPuhelinnumero()
+    {
+        Console.Write("Anna nimi, jolle puhelinnumero päivitetään: ");
+        string? nimi = Console.ReadLine();
+
+        Console.Write("Anna päivitettävä puhelinnumero: ");
+        string? puh = Console.ReadLine();
+
+        // Luodaan yhteys tietokantaan.
+        var connection = new SqliteConnection(_connectionString);
+        connection.Open();
+
+        // Lisätään omistaja tietokantaan.
+        var command = connection.CreateCommand();
+        command.CommandText = "UPDATE Omistajat SET puhelinnumero = @Puh WHERE nimi = @Nimi";
+        command.Parameters.AddWithValue("Puh", puh);
+        command.Parameters.AddWithValue("Nimi", nimi);
+        command.ExecuteNonQuery();
+
+        // Suljetaan yhteys.
+        connection.Close();
+
+        Console.Clear();
+        Console.WriteLine("Puhelinnumero päivitetty!");
+        Thread.Sleep(1000);
+        Console.Clear();
+    }
+
     public string Tulosta()
     {
         // Luodaan yhteys tietokantaan.
@@ -120,7 +148,7 @@ public class LemmikkirekisteriDB
         string omistajat = "";
         while (reader1.Read())
         {
-            omistajat += $"{reader1.GetInt32(0)} | {reader1.GetString(1)} | {reader1.GetString(2)}\n";
+            omistajat += $"{reader1.GetInt32(0)} | {reader1.GetString(1)} | {reader1.GetString(2)}";
         }
 
         reader1.Close();
@@ -131,7 +159,7 @@ public class LemmikkirekisteriDB
         string lemmikit = "";
         while (reader2.Read())
         {
-            lemmikit += $"{reader2.GetInt32(0)} | {reader2.GetInt32(1)} | {reader2.GetString(2)} | {reader2.GetString(3)}\n";
+            lemmikit += $"{reader2.GetInt32(0)} | {reader2.GetInt32(1)} | {reader2.GetString(2)} | {reader2.GetString(3)}";
         }
 
         reader2.Close();
