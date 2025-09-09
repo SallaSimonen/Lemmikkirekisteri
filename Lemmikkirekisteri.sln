@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lemmikkirekisteri", "Lemmikkirekisteri.csproj", "{10586E31-6420-B04F-7627-47E214841EB9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{10586E31-6420-B04F-7627-47E214841EB9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10586E31-6420-B04F-7627-47E214841EB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10586E31-6420-B04F-7627-47E214841EB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10586E31-6420-B04F-7627-47E214841EB9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {292CA3A5-2F25-4683-9446-42DA76722D49}
+	EndGlobalSection
+EndGlobal
