@@ -6,6 +6,7 @@ class Program
     {
         LemmikkirekisteriDB rekisteri = new LemmikkirekisteriDB();
 
+        Console.Clear();
         Console.WriteLine("Tervetuloa Lemmikkirekisteriin!");
         Thread.Sleep(1000);
         Console.Clear();
@@ -24,17 +25,17 @@ class Program
 
                 case "2":
                     Console.Clear();
-                    rekisteri.LisaaLemmikki();
+                    //rekisteri.LisaaLemmikki();
                     break;
 
                 case "3":
                     Console.Clear();
-                    rekisteri.PaivitaPuhelinnumero();
+                    //rekisteri.PaivitaPuhelinnumero();
                     break;
 
                 case "4":
                     Console.Clear();
-                    rekisteri.EtsiPuhelinnumero();
+                    //rekisteri.EtsiPuhelinnumero();
                     break;
 
                 case "0":
@@ -43,7 +44,7 @@ class Program
                     Thread.Sleep(1000);
                     Console.Clear();
                     return;
-                    
+
                 default:
                     Console.WriteLine("Anna 1, 2, 3, 4 tai 0");
                     break;
