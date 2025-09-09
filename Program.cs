@@ -8,12 +8,11 @@ class Program
 
         Console.Clear();
         Console.WriteLine("Tervetuloa Lemmikkirekisteriin!");
-        Thread.Sleep(1000);
-        Console.Clear();
+        
 
         while (true)
         {
-            Console.WriteLine("Lisää omistaja: 1\nLisää lemmikki: 2\nPäivitä puhelinnumero: 3\nEtsi puhelinnumero: 4\nLopeta:  0");
+            Console.WriteLine("\nLisää omistaja: 1\nLisää lemmikki: 2\nPäivitä puhelinnumero: 3\nEtsi puhelinnumero: 4\nLopeta:  0");
             string? vastaus = Console.ReadLine();
 
             switch (vastaus)
@@ -30,7 +29,7 @@ class Program
 
                 case "3":
                     Console.Clear();
-                    //rekisteri.PaivitaPuhelinnumero();
+                    rekisteri.PaivitaPuhelinnumero();
                     break;
 
                 case "4":
