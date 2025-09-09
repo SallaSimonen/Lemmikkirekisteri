@@ -65,4 +65,78 @@ public class LemmikkirekisteriDB
         Thread.Sleep(1000);
         Console.Clear();
     }
+
+    public void LisaaLemmikki()
+    {
+        Console.Write("Anna omistajan nimi: ");
+        string? omistajanNimi = Console.ReadLine();
+
+        Console.Write("Anna lemmikin nimi: ");
+        string? lemmikinNimi = Console.ReadLine();
+
+        Console.Write("Anna Lemmikin laji: ");
+        string? laji = Console.ReadLine();
+
+        // Luodaan yhteys tietokantaan.
+        var connection = new SqliteConnection(_connectionString);
+        connection.Open();
+
+        // Haetaan tietokannasta omistajan id nimen perusteella.
+        var command1 = connection.CreateCommand();
+        command1.CommandText = "SELECT id FROM Omistajat WHERE nimi = @Nimi";
+        command1.Parameters.AddWithValue("Nimi", omistajanNimi);
+        var reader = command1.ExecuteReader();
+        reader.Read();
+        int omistaja_id = reader.GetInt32(0);
+        reader.Close();
+
+        // Lisätään lemmikki tietokantaan.
+        var command2 = connection.CreateCommand();
+        command2.CommandText = "INSERT INTO Lemmikit (omistaja_id, nimi, laji) VALUES (@Id, @Nimi, @Laji)";
+        command2.Parameters.AddWithValue("Id", omistaja_id);
+        command2.Parameters.AddWithValue("Nimi", lemmikinNimi);
+        command2.Parameters.AddWithValue("Laji", laji);
+        command2.ExecuteNonQuery();
+
+        // Suljetaan yhteys.
+        connection.Close();
+
+        Console.Clear();
+        Console.WriteLine("Lemmikki lisätty!");
+        Thread.Sleep(1000);
+        Console.Clear();
+    }
+
+    public string Tulosta()
+    {
+        // Luodaan yhteys tietokantaan.
+        var connection = new SqliteConnection(_connectionString);
+        connection.Open();
+
+        // Haetaan tietokannasta omistajan id nimen perusteella.
+        var command1 = connection.CreateCommand();
+        command1.CommandText = "SELECT * FROM Omistajat";
+        var reader1 = command1.ExecuteReader();
+        string omistajat = "";
+        while (reader1.Read())
+        {
+            omistajat += $"{reader1.GetInt32(0)} | {reader1.GetString(1)} | {reader1.GetString(2)}\n";
+        }
+
+        reader1.Close();
+
+        var command2 = connection.CreateCommand();
+        command2.CommandText = "SELECT * FROM Lemmikit";
+        var reader2 = command2.ExecuteReader();
+        string lemmikit = "";
+        while (reader2.Read())
+        {
+            lemmikit += $"{reader2.GetInt32(0)} | {reader2.GetInt32(1)} | {reader2.GetString(2)} | {reader2.GetString(3)}\n";
+        }
+
+        reader2.Close();
+        connection.Close();
+
+        return omistajat + "\n" + lemmikit;
+    }
 }

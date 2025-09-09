@@ -25,7 +25,7 @@ class Program
 
                 case "2":
                     Console.Clear();
-                    //rekisteri.LisaaLemmikki();
+                    rekisteri.LisaaLemmikki();
                     break;
 
                 case "3":
@@ -43,13 +43,18 @@ class Program
                     Console.WriteLine("Kiitos, kun käytit Lemmikkirekisteriä!");
                     Thread.Sleep(1000);
                     Console.Clear();
+                    Console.WriteLine(rekisteri.Tulosta());
+                    Console.ReadKey();
                     return;
 
                 default:
                     Console.WriteLine("Anna 1, 2, 3, 4 tai 0");
                     break;
             }
+            
 
-        }
+        }  
     }
+
+      
 }
