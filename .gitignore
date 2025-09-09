@@ -483,3 +483,5 @@ $RECYCLE.BIN/
 # Vim temporary swap files
 *.swp
 lemmikkirekisteri.db
+*.db
+lemmikkirekisteri.db
