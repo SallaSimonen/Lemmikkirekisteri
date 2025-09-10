@@ -42,8 +42,6 @@ class Program
                     Console.WriteLine("Kiitos, kun käytit Lemmikkirekisteriä!");
                     Thread.Sleep(1000);
                     Console.Clear();
-                    Console.WriteLine(rekisteri.Tulosta());
-                    Console.ReadKey();
                     return;
 
                 default:
