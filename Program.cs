@@ -7,12 +7,12 @@ class Program
         LemmikkirekisteriDB rekisteri = new LemmikkirekisteriDB();
 
         Console.Clear();
-        Console.WriteLine("Tervetuloa Lemmikkirekisteriin!");
+        Console.WriteLine("Tervetuloa Lemmikkirekisteriin!\n");
         
 
         while (true)
         {
-            Console.WriteLine("\nLisää omistaja: 1\nLisää lemmikki: 2\nPäivitä puhelinnumero: 3\nEtsi puhelinnumero: 4\nLopeta:  0");
+            Console.WriteLine("Lisää omistaja: 1\nLisää lemmikki: 2\nPäivitä puhelinnumero: 3\nEtsi puhelinnumero: 4\nLopeta:  0");
             string? vastaus = Console.ReadLine();
 
             switch (vastaus)
@@ -34,7 +34,7 @@ class Program
 
                 case "4":
                     Console.Clear();
-                    //rekisteri.EtsiPuhelinnumero();
+                    rekisteri.EtsiPuhelinnumero();
                     break;
 
                 case "0":
@@ -47,7 +47,10 @@ class Program
                     return;
 
                 default:
+                    Console.Clear();
                     Console.WriteLine("Anna 1, 2, 3, 4 tai 0");
+                    Thread.Sleep(1000);
+                    Console.Clear();
                     break;
             }
             
