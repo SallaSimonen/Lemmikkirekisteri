@@ -184,6 +184,7 @@ public class LemmikkirekisteriDB
                     Console.WriteLine("\nAntamaasi omistajaa ei löytynyt.");
                     Console.WriteLine("Haluatko lisätä omistajan rekisteriin? (y/n)");
                     string? input = Console.ReadLine().ToLower();
+
                     if (input == "y")
                     {
                         Console.WriteLine("\nSiirrytään Omistajan lisäämiseen.");
